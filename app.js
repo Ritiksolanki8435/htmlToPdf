@@ -38,7 +38,7 @@ app.post('/generate-pdf', async (req, res) => {
                 '--no-first-run',
                 '--disable-default-apps'
             ],
-            executablePath: '/usr/bin/chromium-browser'
+            executablePath: process.env.PUPPETEER_EXECUTABLE_PATH
         });
         
         const page = await browser.newPage();
