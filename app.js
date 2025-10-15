@@ -9,6 +9,15 @@ app.use(cors());
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Health check endpoint
+app.get('/', (req, res) => {
+    res.json({ status: 'OK', message: 'PDF Generator API is running' });
+});
+
+app.get('/health', (req, res) => {
+    res.json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
+
 app.post('/generate-pdf', async (req, res) => {
     const html = req.body.html;
 
