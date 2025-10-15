@@ -19,6 +19,10 @@ RUN apt-get update && apt-get install -y \
     libpango-1.0-0 \
     libcairo2 \
     libasound2 \
+    libcups2 \
+    libdbus-1-3 \
+    libgtk-3-0 \
+    libxss1 \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
