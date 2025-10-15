@@ -33,9 +33,12 @@ app.post('/generate-pdf', async (req, res) => {
                 '--disable-setuid-sandbox',
                 '--disable-dev-shm-usage',
                 '--disable-gpu',
-                '--disable-web-security'
+                '--disable-web-security',
+                '--disable-extensions',
+                '--no-first-run',
+                '--disable-default-apps'
             ],
-            executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined
+            executablePath: '/usr/bin/chromium-browser'
         });
         
         const page = await browser.newPage();

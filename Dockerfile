@@ -1,10 +1,14 @@
-FROM node:18-slim
+FROM node:18-alpine
 
 # Install dependencies for Puppeteer
-RUN apt-get update && apt-get install -y \
+RUN apk add --no-cache \
     chromium \
-    --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
+    nss \
+    freetype \
+    freetype-dev \
+    harfbuzz \
+    ca-certificates \
+    ttf-freefont
 
 WORKDIR /app
 
@@ -18,7 +22,8 @@ RUN npm install --omit=dev
 COPY . .
 
 # Set Puppeteer to use installed Chromium
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
 EXPOSE 3000
 
