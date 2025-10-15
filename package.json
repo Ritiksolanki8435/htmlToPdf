@@ -1,0 +1,23 @@
+{
+  "name": "node-app-for-pdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "puppeteer": "^24.24.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
